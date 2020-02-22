@@ -36,13 +36,31 @@
         <div class="card-header">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-              <a class="nav-link active" href="#">全部</a>
+              <a
+                class="nav-link"
+                :class="{ 'active' : visibility === 'all' }"
+                @click="visibility = 'all'"
+                href="#"
+                >全部</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">進行中</a>
+              <a
+                class="nav-link"
+                :class="{ 'active' : visibility === 'processing' }"
+                @click="visibility = 'processing'"
+                href="#"
+                >進行中</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">已完成</a>
+              <a
+                class="nav-link"
+                :class="{ 'active' : visibility === 'completed' }"
+                @click="visibility = 'completed'"
+                href="#"
+                >已完成</a
+              >
             </li>
           </ul>
         </div>

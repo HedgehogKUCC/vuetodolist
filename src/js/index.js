@@ -12,6 +12,7 @@ var app = new Vue({
         completed: false,
       }
     ],
+    visibility: 'all',
   },
   methods: {
     addTodo() {

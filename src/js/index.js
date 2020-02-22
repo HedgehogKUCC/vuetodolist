@@ -30,4 +30,27 @@ var app = new Vue({
       this.todos.splice(key, 1);
     },
   },
+  computed: {
+    filterTodos() {
+      if (this.visibility === 'all') {
+        return this.todos;
+      } else if (this.visibility === 'processing') {
+        // let newTodos = [];
+        // this.todos.forEach(item => {
+        //   if (!item.completed) newTodos.push(item);
+        // });
+        // return newTodos;
+        let newTodos = this.todos.filter(item => item.completed === false);
+        return newTodos;
+      } else if (this.visibility === 'completed') {
+        // let newTodos = [];
+        // this.todos.forEach(item => {
+        //   if (item.completed) newTodos.push(item);
+        // });
+        // return newTodos;
+        let newTodos = this.todos.filter(item => item.completed === true);
+        return newTodos;
+      }
+    }
+  },
 });

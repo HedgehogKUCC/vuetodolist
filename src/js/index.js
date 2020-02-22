@@ -15,7 +15,15 @@ var app = new Vue({
   },
   methods: {
     addTodo() {
-      console.log('addTodo');
+      let value = this.newTodo.trim();
+      let timestamp = Math.floor(Date.now());
+      if (!value) return;
+      this.todos.push({
+        id: timestamp,
+        title: value,
+        completed: false,
+      });
+      this.newTodo = '';
     }
   },
 });

@@ -24,6 +24,7 @@
           class="form-control"
           placeholder="準備要做的事"
           v-model="newTodo"
+          @keyup.enter="addTodo"
         />
         <div class="input-group-append">
           <button class="btn btn-primary" type="button" @click="addTodo">

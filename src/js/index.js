@@ -24,6 +24,9 @@ var app = new Vue({
         completed: false,
       });
       this.newTodo = '';
-    }
+    },
+    removeTodo(key) {
+      this.todos.splice(key, 1);
+    },
   },
 });

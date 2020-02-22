@@ -47,7 +47,7 @@
           </ul>
         </div>
         <ul class="list-group list-group-flush text-left">
-          <li class="list-group-item" v-for="item in todos">
+          <li class="list-group-item" v-for="(item, key) in todos">
             <div class="d-flex">
               <div class="form-check">
                 <input
@@ -60,7 +60,12 @@
                   {{ item.title }}
                 </label>
               </div>
-              <button type="button" class="close ml-auto" aria-label="Close">
+              <button
+                type="button"
+                class="close ml-auto"
+                aria-label="Close"
+                @click="removeTodo(key)"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>

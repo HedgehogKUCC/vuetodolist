@@ -13,6 +13,8 @@ var app = new Vue({
       }
     ],
     visibility: 'all',
+    cacheTodo: {},
+    cacheTitle: '',
   },
   methods: {
     addTodo() {
@@ -28,6 +30,18 @@ var app = new Vue({
     },
     removeTodo(key) {
       this.todos.splice(key, 1);
+    },
+    editTodo(item) {
+      this.cacheTodo = item;
+      this.cacheTitle = item.title;
+    },
+    cancelEdit() {
+      this.cacheTodo = {};
+    },
+    doneEdit(item) {
+      item.title = this.cacheTitle;
+      this.cacheTitle = '';
+      this.cacheTodo = {};
     },
   },
   computed: {

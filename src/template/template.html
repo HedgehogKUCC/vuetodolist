@@ -56,7 +56,11 @@
                   v-model="item.completed"
                   :id="item.id"
                 />
-                <label class="form-check-label" :for="item.id">
+                <label
+                  class="form-check-label"
+                  :class="{ 'completed' : item.completed }"
+                  :for="item.id"
+                >
                   {{ item.title }}
                 </label>
               </div>

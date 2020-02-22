@@ -48,6 +48,9 @@ var app = new Vue({
       this.cacheTitle = '';
       this.cacheTodo = {};
     },
+    clearAllTask() {
+      this.todos = [];
+    }
   },
   computed: {
     filterTodos() {
@@ -70,6 +73,10 @@ var app = new Vue({
         let newTodos = this.todos.filter(item => item.completed === true);
         return newTodos;
       }
+    },
+    filterUncompleted() {
+      let newTodos = this.todos.filter(item => item.completed === false);
+      return newTodos.length;
     }
   },
 });

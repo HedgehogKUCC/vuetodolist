@@ -109,8 +109,8 @@
           </li> -->
         </ul>
         <div class="card-footer d-flex justify-content-between">
-          <span>還有 ? 筆任務未完成</span>
-          <a href="#">清除所有任務</a>
+          <span>還有 {{ filterUncompleted }} 筆任務未完成</span>
+          <a href="#" @click.prevent="clearAllTask">清除所有任務</a>
         </div>
       </div>
     </div>

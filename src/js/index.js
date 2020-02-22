@@ -28,8 +28,13 @@ var app = new Vue({
       });
       this.newTodo = '';
     },
-    removeTodo(key) {
-      this.todos.splice(key, 1);
+    removeTodo(item) {
+      // let newIndex = '';
+      // this.todos.forEach((e, i) => {
+      //   if (item.id === e.id) newIndex = i;
+      // });
+      let newIndex = this.todos.findIndex(e => item.id === e.id);
+      this.todos.splice(newIndex, 1);
     },
     editTodo(item) {
       this.cacheTodo = item;

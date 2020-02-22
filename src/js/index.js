@@ -5,13 +5,7 @@ var app = new Vue({
   el: '#app',
   data: {
     newTodo: '',
-    todos: [
-      {
-        id: '777',
-        title: 'Hello World',
-        completed: false,
-      }
-    ],
+    todos: JSON.parse(localStorage.getItem('listData')) || [],
     visibility: 'all',
     cacheTodo: {},
     cacheTitle: '',
@@ -26,6 +20,7 @@ var app = new Vue({
         title: value,
         completed: false,
       });
+      localStorage.setItem('listData', JSON.stringify(this.todos));
       this.newTodo = '';
     },
     removeTodo(item) {
@@ -35,6 +30,7 @@ var app = new Vue({
       // });
       let newIndex = this.todos.findIndex(e => item.id === e.id);
       this.todos.splice(newIndex, 1);
+      localStorage.setItem('listData', JSON.stringify(this.todos));
     },
     editTodo(item) {
       this.cacheTodo = item;
@@ -50,6 +46,7 @@ var app = new Vue({
     },
     clearAllTask() {
       this.todos = [];
+      localStorage.setItem('listData', JSON.stringify(this.todos));
     }
   },
   computed: {
